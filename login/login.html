@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Login Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div ng-view></div>
+    <div ng-controller="LoginFormController" class="container">
+        <h2>Login</h2>
+        <form ng-submit="login()">
+            <input type="text" ng-model="username" placeholder="Username" required>
+            <input type="password" ng-model="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div ng-controller="LoginStatusController">
+            <div ng-show="isInvalidCredentials" style="color: red;">Invalid credentials. Please try again.</div>
+            <div ng-show="isLoggedIn" style="color: green;">Welcome! You are successfully logged in.</div>
+        </div>
+    </div>
+</body>
+
+</html>
